@@ -22,11 +22,7 @@ Create docker image using Dockerfile
 docker build -t harshaettigi/spring-boot-mongo .
 ```
 
-## Deploy Application Using Docker and Kubernetes 
-
-```docker-compose 
-docker-compose up -d 
-```
+## Deploy Application Using Kubernetes
 
 ## List kubernetes pods and services
 ```
