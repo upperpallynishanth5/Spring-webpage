@@ -9,14 +9,15 @@ data:
   password: mongodb@123
 ---
 # Replication Controller for springapp
-apiVersion: v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: spring-controller
 spec:
   replicas: 3
   selector:
-    app: springboot
+    matchLables:
+      app: springboot
   template:
     metadata:
       labels:
