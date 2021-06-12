@@ -1,0 +1,52 @@
+Good to have/Know.
+1. AWS Account.
+2. Linux Knowledge.
+3. Git Commands.
+4. Jenkins Job Creation method and flow.
+5. Ansible Playbooks.
+6. Kubernetes services.
+7. Terraform
+
+
+AWS Setup
+1. Create a IAM user with programmatic access and attach administrator policy, Download the Credentails we need it for aws cli configure.
+2. Create a Ec2 and install Terraform and AWS cli.
+3. Configure AWS Cli with the downloaded credentails.
+
+Initial Setup(Use Terrform to create Ec2)
+1. Create 3 Ec2 instance(t2 micro, ubuntu).
+ - Git Node
+ - Jenkins and Docker Node
+ - Ansible Node
+2. Create 2 Ec2 instance(t3 small, ubuntu).
+ - Kubernetes Master.
+ - Kubernetes Worker.
+ - Setup kubernetes cluster on Master and worker node.
+3. Create a New Repository in Github.
+4. Create a New Repository in DockerHub.
+
+Installation.
+1. Login to Ansible Node and install ansible.
+2. Write a playbook to install jenkins and docker on the jenkins&Docker Node.
+3. Install maven on the jenkins node.
+
+
+Setup CI/CD
+1. Clone the (https://github.com/Harshaettigi/Spring-webpage.git) to your git node.
+2. Push the cloned repo to your newly created github repo.
+3. Create a jenkins job 1 to pull the code from newly created repo from your github repo. 
+ - Run the mvn package command.
+5. If the job 1 is successfull jar file is created under /home/ubuntu/var/lib/jenkins/workspace/{jobname}/{clonedrepo}/springwebpage/target/ 
+6. Create a jenkins job 2 
+ - job should create a image from dockerfile.(Dockerfile will be under cloned repo directory).
+ - Job Should tag a image and push it to docker hub new repo.
+ - Check in your dockerhub if the image is pushed.
+
+Deployment.
+1. Login to kubernetes master copy clone the github repo which was used earlier. 
+ - Edit spring-webpage.yml and add your image name which was pushed to dockerhub repo.
+ - Create pods and services using the same yml file.
+ - List the pod and nodeport service.
+2. Copy & Paste the Master node ip in the Browser with Port number(from nodeport service listing you wil get port number) 
+  
+
